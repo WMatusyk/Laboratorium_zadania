@@ -1,5 +1,9 @@
 while True:
-    lista_liczb = [int(x) for x in input("Podaj ciąg liczb odzielonych spacją: ").split()]
+    try:
+        lista_liczb = [float(x) for x in input("Podaj ciąg liczb odzielonych spacją: ").split()]
+    except ValueError:
+        print("Proszę podać wartości liczbowe")
+        continue
     if len(lista_liczb) == 0:
         print("Nie wprowadzono żadnych danych")
     else:
@@ -24,12 +28,5 @@ for i in lista_liczb:
 print(f"Dodatnie: {dod}, Ujemne: {ujem}, Zera: {zera}")
 print(f"Największa: {max(lista_liczb)}")
 print(f"Najmniejsza: {min(lista_liczb)}")
-
-
-
-
-
-
-
 
 input()
