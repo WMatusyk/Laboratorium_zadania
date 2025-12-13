@@ -1,6 +1,6 @@
 while True:
     try:
-        lista_liczb = [float(x) for x in input("Podaj ciąg liczb odzielonych spacją: ").split()]
+        lista_liczb = [int(x) for x in input("Podaj ciąg liczb odzielonych spacją: ").split()]
     except ValueError:
         print("Proszę podać wartości liczbowe")
         continue
