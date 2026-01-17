@@ -1,4 +1,3 @@
-import csv
 from models.product import Product
 
 class Cart:
@@ -17,22 +16,6 @@ class Cart:
 
     def total_price(self):
         return sum(product.price for product in self.products)
-
-    def filter_by_category(self, category):
-        """Zwraca listę produktów z danej kategorii."""
-        return [p for p in self.products if p.category == category]
-
-    def save_to_csv(self, filename):
-        """Eksportuje zawartość koszyka do pliku CSV."""
-        with open(filename, mode='w', newline='', encoding='utf-8') as csvfile:
-            writer = csv.writer(csvfile)
-            writer.writerow(['Name', 'Category', 'Price'])
-            for p in self.products:
-                writer.writerow([p.name, p.category, p.price])
-
-    def __getitem__(self, index):
-        """Umożliwia dostęp do produktów po indeksie."""
-        return self.products[index]
 
     def __len__(self):
         return len(self.products)

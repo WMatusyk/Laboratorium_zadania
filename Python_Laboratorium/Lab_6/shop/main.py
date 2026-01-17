@@ -47,29 +47,5 @@ def main():
     print("\nPełna lista zakupów:")
     print(cart)
 
-    # --- Testy Rozszerzeń ---
-    print("\n--- Testy Rozszerzeń (Step 5) ---")
-    
-    # 1. Test __getitem__
-    print(f"Pierwszy produkt w koszyku (indeks 0): {cart[0]}")
-
-    # 2. Test filtrowania
-    elektronika = cart.filter_by_category("Elektronika")
-    print(f"\nProdukty z kategorii 'Elektronika': {[p.name for p in elektronika]}")
-    
-    # 3. Test zapisu do CSV
-    csv_filename = "koszyk.csv"
-    cart.save_to_csv(csv_filename)
-    print(f"\nZapisano koszyk do pliku '{csv_filename}'.")
-
-    # 4. Test rabatów
-    from logic.discounts import Discount
-    discount = Discount("Black Friday", 20) # 20% zniżki
-    total = cart.total_price()
-    discounted_total = discount.apply(total)
-    print(f"\nCałkowita wartość: {total} PLN")
-    print(f"Zastosowano {discount}: Nowa kwota: {discounted_total} PLN")
-
-
 if __name__ == "__main__":
     main()
